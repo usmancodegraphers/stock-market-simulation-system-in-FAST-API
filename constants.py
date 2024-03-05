@@ -1,0 +1,6 @@
+USER_EXIST = 'username already exist Please change'
+Invalid_Cradentials = 'User Cradentials are not valid'
+USER_NOT_EXIST = 'User is not found'
+TICKER_EXIST = 'Ticker is already exist Please change'
+INSUFFICIENT_BALANCE = 'User have insufficient balance to do transactions'
+ZERO_Transactions = 'User not do any Transactions'
