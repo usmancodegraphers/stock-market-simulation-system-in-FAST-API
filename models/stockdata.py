@@ -24,7 +24,8 @@ class StockData(BaseModel):
     See Also:
         `BaseModel`: A base class for common database model functionality.
     """
-    __tablename__ = 'stockdata'
+
+    __tablename__ = "stockdata"
     ticker = Column(String, nullable=False, primary_key=True)
     open_price = Column(Float, nullable=False)
     close_price = Column(Float, nullable=False)

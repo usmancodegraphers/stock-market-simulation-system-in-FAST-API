@@ -9,4 +9,3 @@ app = FastAPI()
 app.include_router(user)
 app.include_router(stock)
 app.include_router(transection)
-

@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 
 import bcrypt
-import jwt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import JOSEError, jwt
@@ -22,8 +21,7 @@ def hash_password(password: str) -> str:
     Returns:
         str: The hashed password.
     """
-    return bcrypt.hashpw(password.encode('utf-8'),
-                         bcrypt.gensalt()).decode('utf-8')
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
 
 def verify_password(password: str, hashed_password: str) -> bool:
@@ -37,7 +35,7 @@ def verify_password(password: str, hashed_password: str) -> bool:
     Returns:
         bool: True if the passwords match, False otherwise.
     """
-    return bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8'))
+    return bcrypt.checkpw(password.encode("utf-8"), hashed_password.encode("utf-8"))
 
 
 def generate_token(user_id: str) -> str:
@@ -51,16 +49,13 @@ def generate_token(user_id: str) -> str:
         str: The generated JWT.
     """
     expiration = datetime.utcnow() + timedelta(hours=int(settings.EXPIRY))
-    payload = {
-        "sub": str(user_id),
-        "exp": expiration
-    }
+    payload = {"sub": str(user_id), "exp": expiration}
     return jwt.encode(payload, settings.SECRET_KEY, settings.ALGORITHM)
 
 
 async def get_current_user(
-        credentials: HTTPAuthorizationCredentials = Depends(security),
-        db: Session = Depends(get_db),
+    credentials: HTTPAuthorizationCredentials = Depends(security),
+    db: Session = Depends(get_db),
 ) -> User:
     """
     Get the current logged-in user.

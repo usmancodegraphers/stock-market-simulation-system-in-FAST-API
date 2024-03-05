@@ -2,10 +2,8 @@ from models.stockdata import StockData
 
 
 def calculate_price(
-        stock_data: StockData,
-        transaction_type: str,
-        transaction_volume: int
-        ) -> float:
+    stock_data: StockData, transaction_type: str, transaction_volume: int
+) -> float:
     """
     Calculate the transaction price based on stock data, transaction type, and volume.
 

@@ -27,11 +27,11 @@ class Transactions(BaseModel):
         `User`: Database table representation for users.
     """
 
-    __tablename__ = 'transactions'
+    __tablename__ = "transactions"
     ticker = Column(String, nullable=False)
     transaction_type = Column(String, nullable=False)
     transaction_volume = Column(Integer, nullable=False)
     user_id = Column(String, ForeignKey("users.id"))
-    owner = relationship("User", back_populates='transactions')
+    owner = relationship("User", back_populates="transactions")
     transaction_price = Column(Float, nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow)

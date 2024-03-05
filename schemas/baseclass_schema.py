@@ -10,4 +10,5 @@ class BaseModel(Base):
     Attributes:
        - created_on (datetime.datetime): The timestamp indicating when the record was created.
     """
+
     created_on: datetime.datetime = datetime.datetime.now()

@@ -12,13 +12,10 @@ routes = APIRouter()
 
 
 @routes.post(
-    '/stocks/',
-    response_model=StockDataSchema,
-    status_code=status.HTTP_201_CREATED
+    "/stocks/", response_model=StockDataSchema, status_code=status.HTTP_201_CREATED
 )
 def create_stock(
-        data: StockDataSchema,
-        db: Session = Depends(get_db)
+    data: StockDataSchema, db: Session = Depends(get_db)
 ) -> StockDataSchema:
     """
     Create a new stock entry.
@@ -50,9 +47,8 @@ def create_stock(
 
 
 @routes.get(
-    '/stocks/',
-    response_model=List[StockDataSchema],
-    status_code=status.HTTP_200_OK)
+    "/stocks/", response_model=List[StockDataSchema], status_code=status.HTTP_200_OK
+)
 def all_stocks(db: Session = Depends(get_db)):
     """
     Retrieve a list of all stock data entries.
@@ -67,13 +63,9 @@ def all_stocks(db: Session = Depends(get_db)):
 
 
 @routes.get(
-    '/stocks/{ticker}',
-    response_model=StockDataSchema,
-    status_code=status.HTTP_200_OK
+    "/stocks/{ticker}", response_model=StockDataSchema, status_code=status.HTTP_200_OK
 )
-def get_stock(ticker: str,
-              db: Session = Depends(get_db)
-              ) -> StockDataSchema:
+def get_stock(ticker: str, db: Session = Depends(get_db)) -> StockDataSchema:
     """
     Retrieve stock data for a specific ticker.
 

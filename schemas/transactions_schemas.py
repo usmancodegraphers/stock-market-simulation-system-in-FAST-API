@@ -14,6 +14,7 @@ class TransectionSchema(BaseModel):
        - transaction_price (float): The price of the transaction.
        - timestamp (datetime): The timestamp indicating when the transaction occurred.
     """
+
     ticker: str
     transaction_type: str
     transaction_volume: int

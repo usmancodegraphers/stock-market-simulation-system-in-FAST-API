@@ -20,8 +20,9 @@ class User(BaseModel):
     See Also:
         `BaseModel`: A base class for common database model functionality.
     """
-    __tablename__ = 'users'
+
+    __tablename__ = "users"
     username = Column(String, nullable=False, unique=True)
     balance = Column(Float)
     password = Column(String(255))
-    transactions = relationship("Transactions", back_populates='owner')
+    transactions = relationship("Transactions", back_populates="owner")

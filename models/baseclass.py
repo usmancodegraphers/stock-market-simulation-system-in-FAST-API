@@ -18,6 +18,7 @@ class BaseModel(Base):
         formatted_created_at() -> str:
             Returns the formatted creation timestamp as a string.
     """
+
     __abstract__ = True
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))

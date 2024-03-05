@@ -1,4 +1,4 @@
-from models.user import User
-from models.transactions import Transactions
-from models.stockdata import StockData
-from db.database import Base
+from models.user import User  # noqa
+from models.transactions import Transactions  # noqa
+from models.stockdata import StockData  # noqa
+from db.database import Base  # noqa

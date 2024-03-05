@@ -19,6 +19,7 @@ class StockDataSchema(BaseModel):
     Config:
         from_attributes (bool): Use attributes for model initialization.
     """
+
     ticker: str
     open_price: float
     close_price: float
@@ -31,4 +32,5 @@ class StockDataSchema(BaseModel):
         """
         Pydantic configuration for the model.
         """
+
         from_attributes = True

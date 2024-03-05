@@ -16,7 +16,7 @@ This repository contains the implementation of a stock trading system with vario
 - **Swagger** API Documentation and Testing
 - **Jwt** Token-based authentication mechanism
 - **Docker** Containerization and Deployment Tool
-  
+
 
 ## Requirements 📋
 
@@ -41,7 +41,7 @@ This repository contains the implementation of a stock trading system with vario
    -  'high': Highest stock price.
    -  'volume': Stock trading volume.
    -  'timestamp': Timestamp of stock data.
-     
+
 
 ### 🔄 Transactions
 
@@ -121,6 +121,3 @@ Visit [http://0.0.0.0:5050](http://0.0.0.0:5050) to monitor database.
 Feel free to modify the setup based on your specific requirements
 
 ---
-
-
- 

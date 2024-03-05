@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic_settings import BaseSettings
 
 
@@ -8,7 +6,6 @@ class DevelopConfig(BaseSettings):
     SECRET_KEY: str
     ALGORITHM: str
     EXPIRY: str
-    REDIS_URL: Optional[str]
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
     POSTGRES_DB: str
