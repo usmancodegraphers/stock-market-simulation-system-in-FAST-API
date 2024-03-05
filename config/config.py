@@ -3,6 +3,7 @@ from pydantic_settings import BaseSettings
 
 class DevelopConfig(BaseSettings):
     DATABASE_URL: str
+    TEST_DATABASE_URL: str
     SECRET_KEY: str
     ALGORITHM: str
     EXPIRY: str

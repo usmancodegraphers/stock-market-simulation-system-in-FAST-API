@@ -108,6 +108,13 @@ Visit [http://0.0.0.0:5555/](http://0.0.0.0:5555/) to monitor Celery tasks using
 
 Visit [http://0.0.0.0:5050](http://0.0.0.0:5050) to monitor database.
 
+### Test Cases
+
+To run test, run the following command.
+
+``
+pytest -vv -s
+``
 
 ---
 

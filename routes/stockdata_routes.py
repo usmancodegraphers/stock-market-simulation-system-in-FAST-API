@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Type
 
 from fastapi import APIRouter, HTTPException, status, Depends
 from sqlalchemy.orm import Session
@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from db.database import get_db
 from models.stockdata import StockData
 from schemas.stockdata_schema import StockDataSchema
-from constants import TICKER_EXIST
+from constants import TICKER_EXIST, TICKER_NOT_EXIST
 
 routes = APIRouter()
 
@@ -65,7 +65,7 @@ def all_stocks(db: Session = Depends(get_db)):
 @routes.get(
     "/stocks/{ticker}", response_model=StockDataSchema, status_code=status.HTTP_200_OK
 )
-def get_stock(ticker: str, db: Session = Depends(get_db)) -> StockDataSchema:
+def get_stock(ticker: str, db: Session = Depends(get_db)) -> Type[StockData]:
     """
     Retrieve stock data for a specific ticker.
 
@@ -81,5 +81,7 @@ def get_stock(ticker: str, db: Session = Depends(get_db)) -> StockDataSchema:
     """
     data = db.query(StockData).filter(StockData.ticker == ticker).first()
     if not data:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail=TICKER_NOT_EXIST
+        )
     return data

@@ -1,7 +1,6 @@
 import os
 import sys
 from logging.config import fileConfig
-from models import Base
 from dotenv import load_dotenv
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
@@ -23,7 +22,7 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-
+from models import Base  # noqa
 
 target_metadata = [Base.metadata]
 
