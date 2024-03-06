@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "stock-market-simulation-system-in-fast-api"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+alembic = "^1.13.1"
+celery = "^5.3.6"
+redis = "^5.0.2"
+python-jose = "^3.3.0"
+pyjwt = "^2.8.0"
+pydantic = "^2.6.3"
+fastapi = "^0.110.0"
+httpx = "^0.27.0"
+sqlalchemy = "^2.0.27"
+psycopg2-binary = "^2.9.9"
+h11 = "^0.14.0"
+uvicorn = "^0.27.1"
+greenlet = "^3.0.3"
+python-dotenv = "^1.0.1"
+pydantic-settings = "^2.2.1"
+flower = "^2.0.1"
+bcrypt = "^4.1.2"
+pytest = "^8.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

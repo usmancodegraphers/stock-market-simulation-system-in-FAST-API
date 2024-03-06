@@ -1,0 +1,10 @@
+DATABASE_URL = <postgresql://user:password@db/db_name>
+SECRET_KEY =<your secret key>
+ALGORITHM=<HS256>
+EXPIRY=<in hours>
+REDIS_URL=<redis://redis:6379>
+POSTGRES_USER=<user>
+POSTGRES_PASSWORD=<password>
+POSTGRES_DB=<db_name>
+PGADMIN_EMAIL=<email>
+PGADMIN_PASSWORD=<password>
