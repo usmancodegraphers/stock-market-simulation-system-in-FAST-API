@@ -1,4 +1,4 @@
-# stock-market-simulation-system-in-FAST-API
+# Stock-Market-Simulation-System-in-FAST-API
 
 
 This repository contains the implementation of a stock trading system with various endpoints for user registration and authentication, stock data management, transaction handling, and more. The system is designed to use Redis for caching and Celery for asynchronous task processing.
@@ -22,36 +22,6 @@ This repository contains the implementation of a stock trading system with vario
 
 - Docker & Docker Compose - [Install and Use Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
 - Python 3.10 or higher
-
----
-
-
-## Data Models Overview
-### 🤵 Users
-
-   - 'user_id': Unique identifier for each user.
-   - 'username': User's username.
-   - 'balance': User's current balance.
-
-### 📈  StockData
-
-   - 'ticker': Stock ticker symbol.
-   -  'open_price': Opening stock price.
-   -  'close_price': Closing stock price.
-   -  'high': Highest stock price.
-   -  'volume': Stock trading volume.
-   -  'timestamp': Timestamp of stock data.
-
-
-### 🔄 Transactions
-
-   - 'transaction_id': Unique identifier for each transaction.
-   - 'user_id': Foreign key referencing the Users table.
-   - 'ticker': Stock ticker symbol.
-   - 'transaction_type': Type of transaction (buy/sell).
-   - 'transaction_volume': Volume of the transaction.
-   - 'transaction_price': Price of the transaction.
-   - 'timestamp': Timestamp of the transaction.
 
 ---
 
@@ -112,19 +82,8 @@ Visit [http://0.0.0.0:5050](http://0.0.0.0:5050) to monitor database.
 
 To run test, run the following command.
 
-``
+```
 pytest -vv -s
-``
-
----
-
-## Assumptions
-- The system assumes a PostgreSQL database for storing user data, stock data, and transactions.
-- Redis is used for caching user data and stock data to reduce database load.
-- Celery is employed for handling asynchronous tasks, especially for processing transactions.
-- Swagger documentation is available for easy exploration of the API endpoints.
-- Flower is used for monitoring Celery tasks and their states
-
-Feel free to modify the setup based on your specific requirements
+```
 
 ---

@@ -1,4 +1,3 @@
-import pytest
 from fastapi.testclient import TestClient
 
 from db.database import Base, engine
@@ -10,13 +9,6 @@ Base.metadata.create_all(bind=engine)
 
 
 class TestUserRoutes:
-    @pytest.fixture
-    def created_user(self, db_session):
-        data = {"username": "usman", "password": "usman123", "balance": 10900}
-        response = client.post("/users/", json=data)
-        assert response.status_code == 201
-        return data["username"]
-
     def test_create_user(self, db_session):
         data = {"username": "test", "password": "test123", "balance": 100}
         response = client.post("/users/", json=data)

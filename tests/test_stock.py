@@ -1,4 +1,3 @@
-import pytest
 from fastapi.testclient import TestClient
 
 from db.database import Base, engine
@@ -10,23 +9,6 @@ Base.metadata.create_all(bind=engine)
 
 
 class TestStockRoutes:
-    @pytest.fixture
-    def create_stocks(self, db_session):
-        data = {
-            "ticker": "Total",
-            "open_price": 10,
-            "close_price": 10,
-            "high": 10,
-            "low": 10,
-            "volume": 10,
-            "timestamp": "2024-03-05T08:59:46.994966",
-        }
-
-        response = client.post("/stocks/", json=data)
-        assert response.status_code == 201
-
-        return data["ticker"]
-
     def test_create_stocks(self, db_session):
         data = {
             "ticker": "Total",

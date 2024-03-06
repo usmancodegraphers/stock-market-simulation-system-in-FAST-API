@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from typing import Type
 
 import bcrypt
 from fastapi import Depends, HTTPException, status
@@ -56,7 +57,7 @@ def generate_token(user_id: str) -> str:
 async def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(security),
     db: Session = Depends(get_db),
-) -> User:
+) -> Type[User]:
     """
     Get the current logged-in user.
 
@@ -70,7 +71,6 @@ async def get_current_user(
     Raises:
         HTTPException: Raised if the credentials are invalid or the user does not exist.
     """
-    token = credentials.credentials
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",
@@ -78,7 +78,7 @@ async def get_current_user(
     )
     try:
         payload = jwt.decode(
-            token,
+            credentials.credentials,
             settings.SECRET_KEY,
             settings.ALGORITHM,
             options={"verify_aud": False},

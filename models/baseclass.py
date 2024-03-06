@@ -7,18 +7,6 @@ from db.database import Base
 
 
 class BaseModel(Base):
-    """
-    Base model for SQLAlchemy entities.
-
-    Attributes:
-       - id (str): The primary key identifier generated using UUID.
-       - created_at (DateTime): The timestamp indicating the creation time.
-
-    Methods:
-        formatted_created_at() -> str:
-            Returns the formatted creation timestamp as a string.
-    """
-
     __abstract__ = True
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))

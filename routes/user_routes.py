@@ -1,3 +1,5 @@
+from typing import Type
+
 from fastapi import APIRouter, HTTPException, status, Depends
 from sqlalchemy.orm import Session
 
@@ -65,7 +67,7 @@ def login(user_data: UserLogin, db: Session = Depends(get_db)) -> Token:
 
 
 @routes.get("/users/{username}", response_model=GetUser, status_code=status.HTTP_200_OK)
-def get_user(username: str, db: Session = Depends(get_db)) -> GetUser:
+def get_user(username: str, db: Session = Depends(get_db)) -> Type[User]:
     """
     Retrieve user details by username.
 
